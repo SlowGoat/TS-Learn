@@ -1,0 +1,6 @@
+{
+  "exclude": [
+    "./src/excludeTest/**/*",
+    "./src/excludeTest2/**/*"
+  ]
+}

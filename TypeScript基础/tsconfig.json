@@ -1,0 +1,105 @@
+{
+  // tsconfig.json是ts编译器的配置文件，ts编译器可以根据它的信息来对代码进行编译
+
+  /* 
+    1. include 表示需要被编译成js的文件, exclude 不需要被编译的文件
+
+    exclude 默认值["node_modules", "bower_components", "jspm_packages"]
+
+    路径中 * 表示任意文件 
+           ** 表示任意目录 
+  */
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./src/excludeTest/**/*"
+  ],
+
+  /*
+    2. extends 表示继承配置文件
+    从配置文件继承来的配置，会被当前配置文件覆盖。即优先级 当前配置文件 > 继承的配置文件
+  */
+  "extends": "./extendsText",
+
+  /*
+    3. file 类似于include, 但只能一个一个文件名的写，不方便
+  */
+  "files": [
+    "./file/test.ts"
+  ],
+
+  /*
+    4. compilerOptions 编译器选项
+  */
+  "compilerOptions": {
+    /* 
+      4.1 target 指定ts被编译成的ES版本
+      可选值：
+      'es3'（默认）, 'es5', 'es6', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019', 'es2020', 'es2021', 'esnext'.
+    */
+    "target": "es6",
+    /* 
+      4.2 module 指定使用的模块化规范
+      可选值：
+      'none', 'commonjs', 'amd', 'system', 'umd', 'es6', 'es2015', 'es2020', 'esnext'.
+    */
+    "module": "es6",
+    /*
+      4.3 lib 指定项目中要使用的库，一般运行在浏览器中的项目不需要设置
+    */
+    "lib": ["DOM"],
+    /*
+      4.4 outDir 指定编译后js文件的存放目录
+      把源码和编译后的代码分开存放
+    */
+    "outDir": "./dist",
+    /*
+      4.5 outFile 表示把编译后的js代码合并到一个文件中去（了解），项目中会使用打包工具去处理
+    */
+    /* "outFile": "./dist/app.js", */
+
+    /*
+      4.6 allowJs 是否对js文件进行编译，默认是false
+    */
+    "allowJs": true,
+    /*
+      4.7 checkJs 是否检查js 代码是否符合语法规范，默认是false
+    */
+    "checkJs": true,
+    /*
+      4.8 removeComments 编译后是否移除注释，默认false
+    */    
+    "removeComments": true,
+    /*
+      4.9 noEmit 不生成编译后的文件
+      使用场景：只用来检查语法，不需要生成文件，平时一般不用
+    */     
+    "noEmit": false,
+    /*
+      4.10 noEmitOnError 当有错误时不生成编译后的文件
+      避免有安全隐患的代码存到dist目录
+    */ 
+    "noEmitOnError": true,
+    /*
+      4.10.5 strict 所有严格检查的总开关，设置为true ,下面的所有严格检查都打开
+    */
+    "strict": true,
+    /*
+      4.11 alwaysStrict 设置编译后的js文件是否使用 严格模式，默认false
+    */
+    "alwaysStrict": true,
+    /*
+      4.12 noImplicitAny 不允许隐式的any类型
+    */    
+    "noImplicitAny": true,
+    /*
+      4.13 noImplicitThis 不允许不明确类型的this
+    */      
+    "noImplicitThis": true,
+    /*
+      4.14 strictNullChecks 严格检查空值，在可能为null的地方进行报错提示
+    */    
+    "strictNullChecks": true,
+  }
+}
